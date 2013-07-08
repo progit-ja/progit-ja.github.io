@@ -11,4 +11,10 @@ Git は､ Linux カーネル開発のために Linux Torvalds 氏が2005年に�
 本サイトでは､上記のような状況の公式サイトを補完する目的で､Pro Git 日本語版の電子書籍(PDF/EPUB/MOBI)を公開しています｡
 
 ### ダウンロード
+<!--
 <a onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://github.com/progit-ja/ebooks/raw/master/progit.ja.pdf" target="_blank">PDF</a>
+
+<a onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://github.com/progit-ja/ebooks/raw/master/progit.ja.epub" target="_blank">EPUB</a>
+
+<a onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://github.com/progit-ja/ebooks/raw/master/progit.ja.mobi" target="_blank">MOBI</a>
+-->
