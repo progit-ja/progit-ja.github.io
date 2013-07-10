@@ -15,6 +15,18 @@
 
   <body>
   
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42254314-1', 'progit-ja.github.io');
+  ga('send', 'pageview');
+
+  </script>
+  
+  <!-- 旧来のGoogle Analyticsコード ga.js
   <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-42254314-1']);
@@ -24,7 +36,8 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-</script>
+  </script>
+  -->
 
     <div id="container">
       <div class="inner">
@@ -65,11 +78,11 @@
 <p><em>準備中</em></p>
 
 <ul>
-<li><a onclick="_gaq.push(['_trackEvent','Download','PDF_test',this.href]);" oncontextmenu="_gaq.push(['_trackEvent','Download','PDF_test_right',this.href]);" href="http://yahoo.com" target="_blank">Pro Git 日本語版 PDF</a>
+<li><a onclick="ga(['send', 'event', 'Download', 'click', 'PDF_test_new', this.href]);" oncontextmenu="ga(['send', 'event', 'Download', 'click', 'PDF_test_right_new', this.href]);" href="http://yahoo.com" target="_blank">Pro Git 日本語版 PDF</a>
 </li>
-<li><a onclick="_gaq.push(['_trackEvent','Download','EPUB_test',this.href]);" oncontextmenu="_gaq.push(['_trackEvent','Download','EPUB_test_right',this.href]);" href="https://google.com" target="_blank">Pro Git 日本語版 EPUB</a>
+<li><a onclick="ga(['send', 'event', 'Download', 'click', 'EPUB_test_new', this.href]);" oncontextmenu="ga(['send', 'event', 'Download', 'click', 'EPUB_test_right_new', this.href]);" href="https://google.com" target="_blank">Pro Git 日本語版 EPUB</a>
 </li>
-<li><a onclick="_gaq.push(['_trackEvent','Download','MOBI_test',this.href]);" oncontextmenu="_gaq.push(['_trackEvent','Download','MOBI_test_right',this.href]);" href="https://amazon.com" target="_blank">Pro Git 日本語版 MOBI</a>
+<li><a onclick="ga(['send', 'event', 'Download', 'click', 'MOBI_test_new', this.href]);" oncontextmenu="ga(['send', 'event', 'Download', 'click', 'MOBI_test_right_new', this.href]);" href="https://amazon.com" target="_blank">Pro Git 日本語版 MOBI</a>
 </li>
 
 <!--
