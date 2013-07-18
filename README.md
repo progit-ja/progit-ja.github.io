@@ -14,7 +14,7 @@
 ![Pro Git Book Cover](https://github.com/progit-ja/progit/raw/master/ebooks/cover.png)
 
 ### 書籍紹介
-Git は､ Linux カーネル開発のために Linux Torvalds さんが2005年に公開した分散型バージョン管理システムです｡スタートアップのような小規模組織からGoogle､ IBM のような巨大企業で､また数多くのオープンソースプロジェクトで利用されています｡現在の Git 開発は､濱野純さんを中心としたコミュニティによって非常に活発に行われています｡
+Git は､ Linux カーネル開発のために Linus Torvalds さんが2005年に公開した分散型バージョン管理システムです｡スタートアップのような小規模組織からGoogle､ IBM のような巨大企業で､また数多くのオープンソースプロジェクトで利用されています｡現在の Git 開発は､濱野純さんを中心としたコミュニティによって非常に活発に行われています｡
 
 本書 [Pro Git](http://tinyurl.com/amazonprogit) は､2009年に Apress から出版された､Git の解説書です｡著者の Scott Chacon さんは､GitHub 社で活躍中の Ruby プログラマー､Git のエバンジェリストであり､[Git 公式サイト](http://git-scm.com/)の管理者でもあります｡本書の内容は､出版以降も有志により頻繁に更新されており､[公式サイト](http://git-scm.com/book)上で全て閲覧可能です｡Git 利用中に生じた問題の解決法を探す過程で､公開されている本書の内容を目にした方も多いのではないでしょうか｡
 
