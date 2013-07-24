@@ -1,58 +1,46 @@
-<script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-42254314-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-</script>
+# Pro Git 日本語版電子書籍 公開サイト
 
-| 書籍紹介 | サイトの目的 | ダウンロード | 更新情報 | 謝辞 | お問い合わせ |  
+[Pro Git 日本語版電子書籍公開サイト](http://progit-ja.github.io/)の README です。
 
-![Pro Git Book Cover](https://github.com/progit-ja/progit/raw/master/ebooks/cover.png)
+## サイトの更新について
 
-### 書籍紹介
-Git は､ Linux カーネル開発のために Linus Torvalds さんが2005年に公開した分散型バージョン管理システムです｡スタートアップのような小規模組織からGoogle､ IBM のような巨大企業で､また数多くのオープンソースプロジェクトで利用されています｡現在の Git 開発は､濱野純さんを中心としたコミュニティによって非常に活発に行われています｡
+Pro Git リポジトリの[日本語ディレクトリ](https://github.com/progit/progit/tree/master/ja)に変更が加わった場合に、以下の手順で更新を行います。
 
-本書 [Pro Git](http://tinyurl.com/amazonprogit) は､2009年に Apress から出版された､Git の解説書です｡著者の Scott Chacon さんは､GitHub 社で活躍中の Ruby プログラマー､Git のエバンジェリストであり､[Git 公式サイト](http://git-scm.com/)の管理者でもあります｡本書の内容は､出版以降も有志により頻繁に更新されており､[公式サイト](http://git-scm.com/book)上で全て閲覧可能です｡Git 利用中に生じた問題の解決法を探す過程で､公開されている本書の内容を目にした方も多いのではないでしょうか｡
+1. 更新された Markdown ファイルから電子書籍ファイルを生成する
+2. 生成されたファイルを GitHub にプッシュする
+3. [Releases · progit-ja/progit](https://github.com/progit-ja/progit/releases) に最新版を登録する
+4. [更新情報](http://progit-ja.github.io/#news)を更新する
 
-### サイトの目的
-本書はまた､[有志による翻訳作業](https://github.com/progit/progit)も活発に行われており､ドイツ語､中国語､フランス語､日本語はじめ､多くの言語に翻訳され､公式サイト上で公開されています｡しかし､電子書籍版の方は翻訳･更新が進んでおらず､公式サイト上で公開されているのは現在も英語版(2009年7月版)のみです｡
+- 参考： [History for ja - progit/progit](https://github.com/progit/progit/commits/master/ja)
 
-当サイトでは､上記のような状況の公式サイトを補完する目的で､Pro Git 日本語版電子書籍(PDF/EPUB/MOBI)の最新版を提供していきます｡
+## 電子書籍データの生成方法
 
-### ダウンロード
+公開している電子書籍データは Ubuntu で生成しています。手順は以下の通りです(12.04LTS と 13.04 で検証済み)。
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ja"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br />当サイトからダウンロード可能な以下のコンテンツは､<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 3.0 非移植 ライセンスの下に提供されています。</a>
+    sudo apt-get install -y git pandoc texlive-xetex texlive-latex-extra calibre ruby-rdiscount
+    sudo apt-get install -y fonts-ipafont ttf-vlgothic
 
-*準備中*
+必須のツール、モジュール、フォント類をインストールします。Tex Live 関連はもう少しスマートなやり方がありそうですが、あれこれ怒られた(`xkeyval.sty` がない、 `framed.sty` がないなど色々怒られました。)ので包括的なパッケージをインストールしています。
 
-<!--
-<a onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://github.com/progit-ja/ebooks/raw/master/progit.ja.pdf" target="_blank">Pro Git 日本語版PDF</a>
+    sudo apt-get install -y xvfb
 
-<a onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://github.com/progit-ja/ebooks/raw/master/progit.ja.epub" target="_blank">Pro Git 日本語版EPUB</a>
+MOBI 形式ファイルの生成時に `SVG rasterizer unavailable, SVG will not be converted` と怒られる場合があるので、xvfb をインストールします。
 
-<a onclick="_gaq.push(['_trackEvent','Download','PDF',this.href]);" href="https://github.com/progit-ja/ebooks/raw/master/progit.ja.mobi" target="_blank">Pro Git 日本語版MOBI</a>
--->
+    git clone https://github.com/progit-ja/progit.git
+    cd progit
 
-### 更新情報
+日本語版公開用に修正したリポジトリからソースを取得していますが、必要に応じて本家 https://github.com/progit/progit.git から最新版のソースを取得してください。
 
-- 2013/07/08 サイトを公開しました｡
+    /bin/bash makepdfs ja
+    FORMAT=mobi xvfb-run ruby makeebooks ja
+    FORMAT=epub ruby makeebooks ja
 
-### 謝辞
+特にエラーがでなければ、`progit.ja.pdf` 等のファイル名でファイルが生成されます。
 
-Pro Git 日本語版電子書籍の提供にあたり､特に以下のお三方にこの場を借りて御礼を申し上げます｡
+本家の [README](https://github.com/progit/progit#making-ebooks) では Fedora (16) と Mac OS での生成方法が紹介されていますので、そちらも参考にしてください。
 
-- Pro Git という素晴らしい Git の解説書を広く公開してくださった､著者の [Scott Chacon さん](http://scottchacon.com/)
-- 書籍原稿の現メンテナー｡こちらからの拙いプルリクエストを快く取り込んでくださった､[Jean-Noël Avila さん](http://aviblog.free.fr/)
-- 日本語翻訳作業の中心人物｡電子書籍の公開を快諾くださった､[高木正弘さん](http://www.m-takagi.org/)
+### rdiscount のバージョン
 
-### お問い合わせ
+電子書籍ファイル生成に使用している `makepdfs` や `makeebooks` コマンドでは、Markdown ファイルの HTML 変換に Ruby の Gem である rdiscount を使用しています。
 
-誤訳の指摘､訳文の改善､その他どんな些細なことでも結構です｡お気づきの点がありましたら､ぜひ以下の宛先までご連絡ください｡
-
-メールアドレス: nakayama (at) harupong (dot) com
-
-また､GitHub 上に設置されている[本書籍の Git レポジトリー](https://github.com/progit/progit)では､内容に関する指摘､訳文の更新等を随時受け付けています｡[注意事項(日本語)](https://github.com/progit/progit/blob/master/ja/README.md)を確認のうえ､ぜひプルリクエストを送ってみてください｡
+`gem install rdiscount` でインストールされる rdiscount の最新バージョン (2013-07-24 時点だと 2.1.6)だと Markdown の強調表現( `**` や `__` を `<em>` として扱う)が無視されてしまったので、`apt-get` でインストールできるバージョン (2013-07-24 時点だと 1.6.8)を、上記手順では使用しました。
