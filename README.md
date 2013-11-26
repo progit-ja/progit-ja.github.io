@@ -15,16 +15,13 @@ Pro Git リポジトリの[日本語ディレクトリ](https://github.com/progi
 
 ## 電子書籍データの生成方法
 
-公開している電子書籍データは Ubuntu で生成しています。手順は以下の通りです(12.04LTS と 13.04 で検証済み)。
+公開している電子書籍データは Ubuntu で生成しています。手順は以下の通りです(と 13.10 で検証済み)。
 
-    sudo apt-get install -y git pandoc texlive-xetex texlive-latex-extra calibre ruby-rdiscount
-    sudo apt-get install -y fonts-ipafont ttf-vlgothic
+    sudo apt-get install -y git pandoc texlive-xetex texlive-latex-extra calibre
+    sudo apt-get install -y fonts-ipafont ttf-vlgothic texlive-fonts-recommended
+    sudo gem install rdiscount
 
 必須のツール、モジュール、フォント類をインストールします。Tex Live 関連はもう少しスマートなやり方がありそうですが、あれこれ怒られた(`xkeyval.sty` がない、 `framed.sty` がないなど色々怒られました。)ので包括的なパッケージをインストールしています。
-
-    sudo apt-get install -y xvfb
-
-MOBI 形式ファイルの生成時に `SVG rasterizer unavailable, SVG will not be converted` と怒られる場合があるので、xvfb をインストールします。
 
     git clone https://github.com/progit-ja/progit.git
     cd progit
@@ -38,9 +35,3 @@ MOBI 形式ファイルの生成時に `SVG rasterizer unavailable, SVG will not
 特にエラーがでなければ、`progit.ja.pdf` 等のファイル名でファイルが生成されます。
 
 本家の [README](https://github.com/progit/progit#making-ebooks) では Fedora (16) と Mac OS での生成方法が紹介されていますので、そちらも参考にしてください。
-
-### rdiscount のバージョン
-
-電子書籍ファイル生成に使用している `makepdfs` や `makeebooks` コマンドでは、Markdown ファイルの HTML 変換に Ruby の Gem である rdiscount を使用しています。
-
-`gem install rdiscount` でインストールされる rdiscount の最新バージョン (2013-07-24 時点だと 2.1.6)だと Markdown の強調表現( `**` や `__` を `<em>` として扱う)が無視されてしまったので、`apt-get` でインストールできるバージョン (2013-07-24 時点だと 1.6.8)を、上記手順では使用しました。
