@@ -15,7 +15,7 @@ Pro Git リポジトリの[日本語ディレクトリ](https://github.com/progi
 
 ## 電子書籍データの生成方法
 
-公開している電子書籍データは Ubuntu で生成しています。手順は以下の通りです(と 13.10 で検証済み)。
+公開している電子書籍データは Ubuntu で生成しています。手順は以下の通りです(13.10 で検証済み)。
 
     sudo apt-get install -y git pandoc texlive-xetex texlive-latex-extra calibre
     sudo apt-get install -y fonts-ipafont ttf-vlgothic texlive-fonts-recommended
@@ -26,7 +26,7 @@ Pro Git リポジトリの[日本語ディレクトリ](https://github.com/progi
     git clone https://github.com/progit-ja/progit.git
     cd progit
 
-日本語版公開用に修正したリポジトリからソースを取得していますが、必要に応じて本家 https://github.com/progit/progit.git から最新版のソースを取得してください。
+日本語版公開用に修正したリポジトリからソースを取得していますが、必要に応じて[本家](https://github.com/progit/progit.git)から最新版のソースを取得してください。
 
     /bin/bash makepdfs ja
     FORMAT=mobi xvfb-run ruby makeebooks ja
