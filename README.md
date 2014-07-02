@@ -15,10 +15,10 @@ Pro Git リポジトリの[日本語ディレクトリ](https://github.com/progi
 
 ## 電子書籍データの生成方法
 
-公開している電子書籍データは Ubuntu で生成しています。手順は以下の通りです(13.10 で検証済み)。
+公開している電子書籍データは Ubuntu で生成しています。手順は以下の通りです(14.04 LTS で検証済み)。
 
     sudo apt-get install -y git pandoc texlive-xetex texlive-latex-extra calibre ruby-rdiscount
-    sudo apt-get install -y fonts-ipaexfont ttf-vlgothic
+    sudo apt-get install -y fonts-ipaexfont fonts-vlgothic
 
 必須のツール、モジュール、フォント類をインストールします。Tex Live 関連はもう少しスマートなやり方がありそうですが、あれこれ怒られた(`xkeyval.sty` がない、 `framed.sty` がないなど色々怒られました。)ので包括的なパッケージをインストールしています。
 
